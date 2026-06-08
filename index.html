@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>沖縄SUP体験ショップ｜ワイヤーフレーム（LP）</title>
+<!--
+  ============================================================
+  沖縄SUP体験ショップ 新規サイト ワイヤーフレーム（1ページ完結型LP）
+  - 目的: 新規集客 ＋ 信頼づくり / ターゲット: 全国広く
+  - トーン: シンプル清潔感 ＋ 元気ポップ / 青系＋白基調
+  - 予約導線: LINE中心（後から「フォーム」「外部予約サイト」に差し替え可能）
+  - 本ファイルはロー〜ミドル忠実度のワイヤー。画像はグレー枠のプレースホルダ。
+  - 各セクション冒頭の .wf-note は制作用注記。納品時は <body class="hide-notes"> で一括非表示。
+  ============================================================
+-->
+<style>
+  :root{
+    /* 配色トークン（本デザインで一括変更しやすいように集約） */
+    --blue:#1b8ad6;
+    --blue-dark:#1565a0;
+    --blue-light:#e8f4fc;
+    --white:#ffffff;
+    --gray:#d9dee3;          /* 画像プレースホルダ */
+    --gray-line:#e2e6ea;     /* 区切り線 */
+    --text:#23303a;
+    --text-sub:#5d6b76;
+    --note-bg:#fff7e6;
+    --note-border:#f0c869;
+    --line-green:#06c755;    /* LINE想定 */
+    --tap:44px;              /* 最小タップ領域 */
+    --maxw:1080px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic",Meiryo,sans-serif;
+    color:var(--text);
+    background:var(--white);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+
+  .container{max-width:var(--maxw);margin:0 auto;padding:0 20px;}
+  section{padding:64px 0;}
+  .sec-head{text-align:center;margin-bottom:36px;}
+  .sec-head .en{display:block;color:var(--blue);font-size:13px;letter-spacing:.18em;font-weight:700;}
+  .sec-head h2{font-size:28px;margin:6px 0 0;}
+  .lead{text-align:center;color:var(--text-sub);max-width:680px;margin:0 auto 28px;}
+
+  /* ---- 制作用アノテーション ---- */
+  .wf-note{
+    background:var(--note-bg);
+    border:1px dashed var(--note-border);
+    border-radius:8px;
+    font-size:12.5px;
+    color:#8a6d1f;
+    padding:8px 12px;
+    margin:0 0 20px;
+  }
+  .wf-note b{color:#7a5d10;}
+  .hide-notes .wf-note{display:none;}
+
+  /* ---- プレースホルダ画像枠 ---- */
+  .ph{
+    background:repeating-linear-gradient(45deg,var(--gray),var(--gray) 10px,#cfd5db 10px,#cfd5db 20px);
+    color:#5a6470;
+    display:flex;align-items:center;justify-content:center;text-align:center;
+    border-radius:10px;
+    font-size:13px;font-weight:600;
+    padding:16px;min-height:160px;
+  }
+  .ph.tall{min-height:280px;}
+  .ph.round{border-radius:50%;width:96px;height:96px;min-height:auto;margin:0 auto;}
+
+  /* ---- ボタン ---- */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    min-height:var(--tap);padding:12px 26px;border-radius:999px;
+    font-weight:700;font-size:15px;text-decoration:none;border:none;cursor:pointer;
+  }
+  .btn-line{background:var(--line-green);color:#fff;}
+  .btn-tel{background:#fff;color:var(--blue-dark);border:2px solid var(--blue);}
+  .btn-primary{background:var(--blue);color:#fff;}
+  .btn-lg{font-size:17px;padding:16px 36px;}
+
+  /* ============ ヘッダー（追従） ============ */
+  header.site{
+    position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);
+    border-bottom:1px solid var(--gray-line);backdrop-filter:blur(4px);
+  }
+  .head-inner{display:flex;align-items:center;gap:16px;height:64px;}
+  .logo{font-weight:800;font-size:20px;color:var(--blue-dark);}
+  .logo small{display:block;font-size:10px;color:var(--text-sub);font-weight:600;letter-spacing:.1em;}
+  nav.gnav{margin-left:auto;}
+  nav.gnav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0;font-size:13.5px;font-weight:600;}
+  nav.gnav a{text-decoration:none;}
+  .head-cta{margin-left:8px;}
+
+  /* ============ ヒーロー ============ */
+  .hero{position:relative;padding:0;}
+  .hero .ph{min-height:460px;border-radius:0;}
+  .hero-copy{
+    position:absolute;inset:0;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;text-align:center;color:#fff;
+    background:linear-gradient(180deg,rgba(21,101,160,.35),rgba(21,101,160,.55));padding:20px;
+  }
+  .hero-copy h1{font-size:38px;margin:0 0 12px;text-shadow:0 2px 12px rgba(0,0,0,.3);}
+  .hero-copy p{font-size:17px;margin:0 0 24px;text-shadow:0 1px 8px rgba(0,0,0,.3);}
+  .badges{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:22px;}
+  .badge{background:rgba(255,255,255,.92);color:var(--blue-dark);font-weight:700;font-size:13px;
+    padding:8px 14px;border-radius:999px;}
+
+  /* ============ 選ばれる理由 ============ */
+  .reasons{background:var(--blue-light);}
+  .grid{display:grid;gap:20px;}
+  .grid-3{grid-template-columns:repeat(3,1fr);}
+  .grid-2{grid-template-columns:repeat(2,1fr);}
+  .card{background:#fff;border:1px solid var(--gray-line);border-radius:12px;padding:22px;}
+  .card .num{color:var(--blue);font-weight:800;font-size:14px;}
+  .card h3{margin:6px 0 8px;font-size:18px;}
+  .card p{margin:0;color:var(--text-sub);font-size:14px;}
+
+  /* ============ SUPの魅力 ============ */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;}
+  .split h3{font-size:22px;margin-top:0;}
+  .check{list-style:none;padding:0;margin:14px 0 0;}
+  .check li{padding-left:26px;position:relative;margin-bottom:8px;}
+  .check li::before{content:"✓";position:absolute;left:0;color:var(--blue);font-weight:800;}
+
+  /* ============ コース ============ */
+  .course .ph{min-height:170px;border-radius:10px 10px 0 0;}
+  .course .card{padding:0;overflow:hidden;}
+  .course .card .body{padding:18px;}
+  .course .meta{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0;}
+  .tag{background:var(--blue-light);color:var(--blue-dark);font-size:12px;font-weight:700;padding:4px 10px;border-radius:6px;}
+  .price{font-size:22px;font-weight:800;color:var(--blue-dark);}
+  .price small{font-size:12px;color:var(--text-sub);font-weight:600;}
+
+  /* ============ 料金表 ============ */
+  table.price-table{width:100%;border-collapse:collapse;font-size:14px;}
+  table.price-table th,table.price-table td{border:1px solid var(--gray-line);padding:12px;text-align:center;}
+  table.price-table thead th{background:var(--blue);color:#fff;}
+  table.price-table tbody th{background:var(--blue-light);}
+  .included{background:var(--blue-light);border-radius:12px;padding:20px 24px;margin-top:24px;}
+  .included h3{margin:0 0 10px;font-size:16px;color:var(--blue-dark);}
+  .included ul{margin:0;padding-left:20px;columns:2;font-size:14px;}
+
+  /* ============ 当日の流れ ============ */
+  .flow{list-style:none;counter-reset:step;padding:0;margin:0;max-width:760px;margin-inline:auto;}
+  .flow li{position:relative;padding:0 0 28px 64px;}
+  .flow li::before{
+    counter-increment:step;content:counter(step);
+    position:absolute;left:0;top:0;width:44px;height:44px;border-radius:50%;
+    background:var(--blue);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;
+  }
+  .flow li::after{content:"";position:absolute;left:21px;top:44px;bottom:0;width:2px;background:var(--gray-line);}
+  .flow li:last-child::after{display:none;}
+  .flow h3{margin:0 0 4px;font-size:17px;}
+  .flow p{margin:0;color:var(--text-sub);font-size:14px;}
+  .flow .time{color:var(--blue);font-size:12px;font-weight:700;}
+
+  /* ============ アクセス ============ */
+  .access{background:var(--blue-light);}
+  .access .info dl{display:grid;grid-template-columns:auto 1fr;gap:10px 16px;margin:0;font-size:14px;}
+  .access .info dt{font-weight:700;color:var(--blue-dark);}
+  .access .info dd{margin:0;}
+
+  /* ============ 持ち物 ============ */
+  .bring h3{font-size:17px;margin:0 0 10px;}
+  .bring ul{margin:0;padding-left:20px;font-size:14px;}
+
+  /* ============ ギャラリー ============ */
+  .gallery-scroll{display:flex;gap:14px;overflow-x:auto;padding-bottom:10px;-webkit-overflow-scrolling:touch;}
+  .gallery-scroll .ph{min-width:260px;min-height:180px;flex:0 0 auto;}
+
+  /* ============ 口コミ ============ */
+  .reviews{background:var(--blue-light);}
+  .rating{text-align:center;margin-bottom:28px;}
+  .rating .score{font-size:42px;font-weight:800;color:var(--blue-dark);line-height:1;}
+  .stars{color:#f5a623;font-size:20px;letter-spacing:2px;}
+  .review-card{background:#fff;border:1px solid var(--gray-line);border-radius:12px;padding:20px;}
+  .review-card .who{display:flex;align-items:center;gap:10px;margin-top:14px;font-size:13px;color:var(--text-sub);}
+  .review-card .ph.round{width:40px;height:40px;margin:0;}
+
+  /* ============ 私たちについて ============ */
+  .staff{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:24px;}
+  .staff .item{text-align:center;}
+  .staff h4{margin:12px 0 2px;}
+  .staff p{margin:0;font-size:13px;color:var(--text-sub);}
+  .safety{margin-top:28px;background:var(--blue-light);border-radius:12px;padding:20px 24px;}
+  .safety h3{margin:0 0 8px;font-size:16px;color:var(--blue-dark);}
+  .safety ul{margin:0;padding-left:20px;font-size:14px;}
+
+  /* ============ FAQ ============ */
+  .faq-item{border:1px solid var(--gray-line);border-radius:10px;margin-bottom:12px;overflow:hidden;}
+  .faq-item summary{cursor:pointer;padding:16px 20px;font-weight:700;list-style:none;position:relative;}
+  .faq-item summary::after{content:"＋";position:absolute;right:20px;color:var(--blue);font-weight:800;}
+  .faq-item[open] summary::after{content:"－";}
+  .faq-item .ans{padding:0 20px 16px;color:var(--text-sub);font-size:14px;}
+
+  /* ============ CTA ============ */
+  .cta{background:var(--blue);color:#fff;text-align:center;}
+  .cta h2{font-size:28px;margin:0 0 10px;}
+  .cta p{margin:0 0 24px;opacity:.95;}
+  .cta-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+
+  /* ============ フッター ============ */
+  footer.site{background:var(--text);color:#cdd6dd;font-size:13px;padding:40px 0 88px;}
+  footer.site .cols{display:grid;grid-template-columns:2fr 1fr 1fr;gap:24px;}
+  footer.site h4{color:#fff;margin:0 0 10px;font-size:15px;}
+  footer.site a{text-decoration:none;}
+  footer.site ul{list-style:none;padding:0;margin:0;}
+  footer.site li{margin-bottom:6px;}
+  .copyright{text-align:center;margin-top:28px;border-top:1px solid #3a4750;padding-top:16px;font-size:12px;color:#8a97a1;}
+
+  /* ============ スマホ固定フッターCTA ============ */
+  .mobile-cta{
+    display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;
+    background:#fff;border-top:1px solid var(--gray-line);padding:8px;gap:8px;
+    box-shadow:0 -4px 16px rgba(0,0,0,.08);
+  }
+  .mobile-cta .btn{flex:1;font-size:14px;padding:10px;}
+
+  /* ============ レスポンシブ ============ */
+  @media(max-width:768px){
+    section{padding:48px 0;}
+    .sec-head h2{font-size:23px;}
+    nav.gnav{display:none;}              /* スマホはアンカーナビ非表示（固定CTAで代替） */
+    .head-cta{margin-left:auto;}
+    .hero-copy h1{font-size:27px;}
+    .hero-copy p{font-size:15px;}
+    .hero .ph{min-height:380px;}
+    .grid-3,.grid-2,.split,.staff,footer.site .cols{grid-template-columns:1fr;}
+    .included ul{columns:1;}
+    .mobile-cta{display:flex;}
+  }
+</style>
+</head>
+
+<body>
+
+<!-- ============ 0. ヘッダー（追従） ============ -->
+<header class="site">
+  <div class="container head-inner">
+    <div class="logo">Clear Life<small>OKINAWA SUP TOUR</small></div>
+    <nav class="gnav">
+      <ul>
+        <li><a href="#reasons">選ばれる理由</a></li>
+        <li><a href="#course">コース</a></li>
+        <li><a href="#price">料金</a></li>
+        <li><a href="#flow">当日の流れ</a></li>
+        <li><a href="#access">集合場所</a></li>
+        <li><a href="#about">安全への取り組み</a></li>
+        <li><a href="#faq">よくある質問</a></li>
+      </ul>
+    </nav>
+    <a href="#cta" class="btn btn-primary head-cta cta-booking">お問い合わせ</a>
+  </div>
+</header>
+
+<!-- ============ 1. ヒーロー ============ -->
+<section class="hero" style="padding:0;">
+  <div class="ph"></div>
+  <div class="hero-copy">
+    <h1>沖縄の海を、立って漕ぐ。</h1>
+    <p>初めてでも、泳げなくても大丈夫。少人数で安心のSUP体験。</p>
+    <a href="#cta" class="btn btn-primary btn-lg cta-booking">お問い合わせ</a>
+    <div class="badges">
+      <span class="badge">初心者OK</span>
+      <span class="badge">泳げなくてOK</span>
+      <span class="badge">写真データ無料</span>
+      <span class="badge">少人数制</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. 選ばれる理由 ============ -->
+<section class="reasons" id="reasons">
+  <div class="container">
+    <div class="sec-head"><span class="en">WHY CHOOSE US</span><h2>私たちが選ばれる理由</h2></div>
+    <div class="grid grid-3">
+      <div class="card"><span class="num">01</span><h3>初心者でも安心</h3><p>陸上でしっかり練習してから海へ。少人数制でガイドが同行するので、初めての方も安心です。</p></div>
+      <div class="card"><span class="num">02</span><h3>写真データプレゼント</h3><p>ツアー中の写真を後日無料でお渡し。思い出をそのまま持ち帰れます。</p></div>
+      <div class="card"><span class="num">03</span><h3>手ぶらでOK</h3><p>器材一式・温水シャワー・更衣室を完備。必要なものはこちらでご用意します。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. SUPの魅力 / はじめての方へ ============ -->
+<section id="about-sup">
+  <div class="container">
+    <div class="sec-head"><span class="en">ABOUT SUP</span><h2>SUPってどんな体験？</h2></div>
+    <div class="split">
+      <div class="ph tall">写真：水上に立って笑顔でパドルを漕ぐ参加者</div>
+      <div>
+        <h3>海の上を散歩する、新しい遊び方。</h3>
+        <p>SUP（スタンドアップパドルボード）は、大きなボードの上に立って水面を進むマリンアクティビティ。バランスが取りやすく、年齢や運動経験を問わず楽しめます。</p>
+        <ul class="check">
+          <li>初めての方が多数。陸上でしっかり練習してから海へ</li>
+          <li>泳ぎが苦手でもライフジャケット着用で安心</li>
+          <li>お子さま（○歳〜）から大人まで参加OK</li>
+          <li>ガイドが一緒だから、写真撮影もおまかせ</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. コース紹介 ============ -->
+<section class="course" id="course">
+  <div class="container">
+    <div class="sec-head"><span class="en">TOUR MENU</span><h2>体験コース</h2></div>
+    <div class="grid grid-3">
+      <div class="card">
+        <div class="ph">コース写真：マングローブ</div>
+        <div class="body">
+          <h3>マングローブSUP</h3>
+          <div class="meta"><span class="tag">約2.5時間</span><span class="tag">○歳〜</span><span class="tag">初心者OK</span></div>
+          <p>穏やかな川をゆったり。風の影響が少なく、初めての方に一番人気。</p>
+          <p class="price">¥6,000<small>／名（税込）</small></p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ph">コース写真：サンセット</div>
+        <div class="body">
+          <h3>サンセットSUP</h3>
+          <div class="meta"><span class="tag">約2時間</span><span class="tag">○歳〜</span><span class="tag">人気</span></div>
+          <p>夕焼けに染まる海をクルージング。ロマンチックな時間を。</p>
+          <p class="price">¥7,000<small>／名（税込）</small></p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ph">コース写真：青の洞窟</div>
+        <div class="body">
+          <h3>青の洞窟SUP＆シュノーケル</h3>
+          <div class="meta"><span class="tag">約3時間</span><span class="tag">○歳〜</span><span class="tag">絶景</span></div>
+          <p>SUPで洞窟へ。透明度の高い海でシュノーケルも楽しめる欲張りプラン。</p>
+          <p class="price">¥9,000<small>／名（税込）</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. 料金・メニュー表 ============ -->
+<section id="price">
+  <div class="container">
+    <div class="sec-head"><span class="en">PRICE</span><h2>料金・メニュー</h2></div>
+    <table class="price-table">
+      <thead>
+        <tr><th>コース</th><th>1名</th><th>2名以上／名</th><th>所要時間</th></tr>
+      </thead>
+      <tbody>
+        <tr><th>マングローブSUP</th><td>¥7,000</td><td>¥6,000</td><td>約2.5時間</td></tr>
+        <tr><th>サンセットSUP</th><td>¥8,000</td><td>¥7,000</td><td>約2時間</td></tr>
+        <tr><th>青の洞窟SUP＆シュノーケル</th><td>¥10,000</td><td>¥9,000</td><td>約3時間</td></tr>
+      </tbody>
+    </table>
+    <div class="included">
+      <h3>料金に含まれるもの</h3>
+      <ul>
+        <li>SUPボード・パドル一式</li>
+        <li>ライフジャケット</li>
+        <li>ウェットスーツ（季節に応じて）</li>
+        <li>保険料</li>
+        <li>温水シャワー・更衣室</li>
+        <li>ガイド料・写真データ</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. 当日の流れ ============ -->
+<section class="flow-sec" id="flow">
+  <div class="container">
+    <div class="sec-head"><span class="en">FLOW</span><h2>当日の流れ</h2></div>
+    <ol class="flow">
+      <li><span class="time">10分前</span><h3>集合・受付</h3><p>集合場所に到着、受付を済ませます。</p></li>
+      <li><h3>着替え・安全説明</h3><p>更衣室で着替え、陸上でパドルの使い方と安全のレクチャー。</p></li>
+      <li><h3>フィールドへ移動</h3><p>必要に応じて車で移動（徒歩／○分）。</p></li>
+      <li><h3>SUP体験</h3><p>ガイドと一緒に海へ。写真もたくさん撮影します。</p></li>
+      <li><h3>片付け・着替え</h3><p>温水シャワーで汗を流してリフレッシュ。</p></li>
+      <li><h3>解散</h3><p>後日、撮影した写真データをお渡しします。</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ 7. 集合場所・アクセス ============ -->
+<section class="access" id="access">
+  <div class="container">
+    <div class="sec-head"><span class="en">ACCESS</span><h2>集合場所・アクセス</h2></div>
+    <div class="split">
+      <div class="ph tall">Googleマップ 埋め込み（集合場所）</div>
+      <div class="info">
+        <dl>
+          <dt>集合場所</dt><dd>○○ビーチ駐車場（△△施設となり）</dd>
+          <dt>住所</dt><dd>沖縄県○○市△△ 0-0-0</dd>
+          <dt>カーナビ</dt><dd>「□□（目印施設名）」で検索</dd>
+          <dt>アクセス</dt><dd>那覇空港から車で約○分</dd>
+          <dt>駐車場</dt><dd>無料・○台分あり</dd>
+          <dt>設備</dt><dd>更衣室／温水シャワー／トイレ完備</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. 持ち物・準備 ============ -->
+<section class="bring" id="bring">
+  <div class="container">
+    <div class="sec-head"><span class="en">WHAT TO BRING</span><h2>持ち物・準備するもの</h2></div>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>こちらでご用意するもの</h3>
+        <ul>
+          <li>SUPボード・パドル</li>
+          <li>ライフジャケット・ウェットスーツ</li>
+          <li>温水シャワー・更衣室・タオル（有料／無料）</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>お持ちいただくもの</h3>
+        <ul>
+          <li>水着（事前に着用がおすすめ）</li>
+          <li>着替え・タオル</li>
+          <li>日焼け止め・飲み物</li>
+          <li>メガネバンド（メガネの方）</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9. ギャラリー ============ -->
+<section id="gallery">
+  <div class="container">
+    <div class="sec-head"><span class="en">GALLERY</span><h2>フォトギャラリー</h2></div>
+    <div class="gallery-scroll">
+      <div class="ph">写真1</div><div class="ph">写真2</div><div class="ph">写真3</div>
+      <div class="ph">写真4</div><div class="ph">写真5</div><div class="ph">写真6</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10. 安全への取り組み ============ -->
+<section id="about">
+  <div class="container">
+    <div class="sec-head"><span class="en">SAFETY</span><h2>安全への取り組み</h2></div>
+    <div class="safety">
+      <ul>
+        <li>○○認定インストラクターが必ず同行</li>
+        <li>傷害保険・賠償責任保険に加入</li>
+        <li>ライフジャケット全員着用・少人数制での運営</li>
+        <li>気象・海況を確認し、安全最優先で催行を判断</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 12. よくある質問（FAQ） ============ -->
+<section id="faq">
+  <div class="container">
+    <div class="sec-head"><span class="en">FAQ</span><h2>よくある質問</h2></div>
+    <details class="faq-item" open>
+      <summary>泳げないのですが参加できますか？</summary>
+      <div class="ans">はい。ライフジャケットを着用し、ガイドが同行するので泳げない方でも安心してご参加いただけます。</div>
+    </details>
+    <details class="faq-item">
+      <summary>雨でも開催しますか？</summary>
+      <div class="ans">小雨であれば開催します。荒天・強風時は安全のため中止・振替となる場合があります。</div>
+    </details>
+    <details class="faq-item">
+      <summary>キャンセル料はかかりますか？</summary>
+      <div class="ans">前日○時まで無料、それ以降は所定のキャンセル料を申し受けます。（※実規定に差し替え）</div>
+    </details>
+    <details class="faq-item">
+      <summary>何歳から参加できますか？</summary>
+      <div class="ans">○歳から参加いただけます。お子さまは保護者同伴でお願いします。</div>
+    </details>
+    <details class="faq-item">
+      <summary>何を持っていけばいいですか？</summary>
+      <div class="ans">水着・着替え・タオル・日焼け止めをお持ちください。器材一式はこちらでご用意します。</div>
+    </details>
+  </div>
+</section>
+
+<!-- ============ 11. お問い合わせ（CTA） ============
+     ★差し替えポイント★
+     予約方法は検討中のため、現状は「お問い合わせ」ボタンを配置。
+     - 予約方法が決まったら .cta-booking のボタンを差し替え（LINE / 自社フォーム / 外部予約サイト等）。
+     お問い合わせ・予約ボタンは全て class="cta-booking" で統一しているため一括で差し替え可能。
+-->
+<section class="cta" id="cta">
+  <div class="container">
+    <h2>お問い合わせ</h2>
+    <p>日程やコースのご相談だけでもお気軽にどうぞ。お問い合わせフォーム・お電話で承ります。</p>
+    <div class="cta-buttons">
+      <a href="#" class="btn btn-primary btn-lg cta-booking">お問い合わせはこちら</a>
+      <a href="tel:000-000-0000" class="btn btn-tel btn-lg">電話する（000-000-0000）</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 14. フッター ============ -->
+<footer class="site">
+  <div class="container">
+    <div class="cols">
+      <div>
+        <h4>Clear Life</h4>
+        <p>沖縄のSUP体験専門ショップ。<br>少人数制・初心者歓迎で、全国からお越しいただいています。</p>
+      </div>
+      <div>
+        <h4>メニュー</h4>
+        <ul>
+          <li><a href="#course">コース</a></li>
+          <li><a href="#price">料金</a></li>
+          <li><a href="#access">集合場所</a></li>
+          <li><a href="#faq">よくある質問</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>お問い合わせ</h4>
+        <ul>
+          <li>営業時間：○:○○〜○:○○</li>
+          <li>TEL：000-000-0000</li>
+          <li>LINE / Instagram</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© Clear Life All Rights Reserved.</div>
+  </div>
+</footer>
+
+<!-- ============ スマホ固定フッターCTA ============ -->
+<div class="mobile-cta">
+  <a href="#cta" class="btn btn-primary cta-booking">お問い合わせ</a>
+  <a href="tel:000-000-0000" class="btn btn-tel">電話する</a>
+</div>
+
+</body>
+</html>
